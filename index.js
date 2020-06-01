@@ -15,6 +15,11 @@ const typeDefs = gql`
   type Author {
     title: String
   }
+
+  type ToDo {
+    id: String
+    type: String
+  }
   
 
   # The "Query" type is special: it lists all of the available queries that
@@ -22,10 +27,12 @@ const typeDefs = gql`
   # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
     books: [Book]
+    todos: [ToDo]
     getAuthorBooks(author: String): [Book] 
   }
 
   type Mutation {
+    updateTodo(id: String, type: String): ToDo
     addBook(title: String, author: String): Book
   }
 `;
@@ -38,19 +45,35 @@ const books = [
   {
     title: "Jurassic Park",
     author: "Michael Crichton",
-  },
+  }
 ];
+
+const todos = [{
+  id: '1',
+  type: 'foo'
+},
+{
+  id: '2',
+  type: 'bar'
+}]
 
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
 const resolvers = {
   Query: {
     books: () => books,
+    todos: () => todos,
     getAuthorBooks: (parent, args) => {
       return books.filter(book => book.author === args.author);
     }
   },
   Mutation: {
+    updateTodo: (parent, { id, type }) => {
+      const todo = todos.find(todo => todo.id === id);
+      todo.type = type;
+
+      return todo;
+    },
     addBook: (parent, { title, author }) => {
       const book = { title, author };
       books.push(book);
