@@ -1,4 +1,5 @@
-const { ApolloServer, gql } = require("apollo-server");
+import { gql } from 'apollo-server';
+import { Book, ToDo } from './../../types';
 
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
@@ -20,7 +21,6 @@ const typeDefs = gql`
     id: String
     type: String
   }
-  
 
   # The "Query" type is special: it lists all of the available queries that
   # clients can execute, along with the return type for each. In this
@@ -28,7 +28,7 @@ const typeDefs = gql`
   type Query {
     books: [Book]
     todos: [ToDo]
-    getAuthorBooks(author: String): [Book] 
+    getAuthorBooks(author: String): [Book]
   }
 
   type Mutation {
@@ -37,25 +37,27 @@ const typeDefs = gql`
   }
 `;
 
-const books = [
+const books: Book[] = [
   {
-    title: "Harry Potter and the Chamber of Secrets",
-    author: "J.K. Rowling",
+    title: 'Harry Potter and the Chamber of Secrets',
+    author: 'J.K. Rowling'
   },
   {
-    title: "Jurassic Park",
-    author: "Michael Crichton",
+    title: 'Jurassic Park',
+    author: 'Michael Crichton'
   }
 ];
 
-const todos = [{
-  id: '1',
-  type: 'foo'
-},
-{
-  id: '2',
-  type: 'bar'
-}]
+const todos: ToDo[] = [
+  {
+    id: '1',
+    type: 'foo'
+  },
+  {
+    id: '2',
+    type: 'bar'
+  }
+];
 
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
@@ -63,18 +65,20 @@ const resolvers = {
   Query: {
     books: () => books,
     todos: () => todos,
-    getAuthorBooks: (parent, args) => {
-      return books.filter(book => book.author === args.author);
+    getAuthorBooks: (_: {}, { author }: Book) => {
+      return books.filter((book) => book.author === author);
     }
   },
   Mutation: {
-    updateTodo: (parent, { id, type }) => {
-      const todo = todos.find(todo => todo.id === id);
-      todo.type = type;
+    updateTodo: (_: {}, { id, type }: ToDo) => {
+      const todo = todos.find((todo) => todo.id === id);
+      if (todo) {
+        todo.type = type;
+      }
 
       return todo;
     },
-    addBook: (parent, { title, author }) => {
+    addBook: (_: {}, { title, author }: Book) => {
       const book = { title, author };
       books.push(book);
 
@@ -83,11 +87,4 @@ const resolvers = {
   }
 };
 
-// The ApolloServer constructor requires two parameters: your schema
-// definition and your set of resolvers.
-const server = new ApolloServer({ typeDefs, resolvers });
-
-// The `listen` method launches a web server.
-server.listen().then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
-});
+export { typeDefs, resolvers };

@@ -1,0 +1,19 @@
+overwrite: true
+schema: './src/schema/index.ts'
+documents: null
+generates:
+  ./src/types/index.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+    config:
+      namingConvention: keep
+      skipTypename: true
+      nonOptionalTypename: false
+      maybeValue: T | null
+      avoidOptionals: 
+          field: true
+          inputValue: true
+          object: true
+
+require: ts-node/register
