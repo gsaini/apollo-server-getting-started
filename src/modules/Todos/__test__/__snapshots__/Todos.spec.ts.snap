@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todos Module should return todos 1`] = `
+Object {
+  "data": Object {
+    "todos": Array [
+      Object {
+        "completed": false,
+        "id": "1",
+        "title": "delectus aut autem",
+      },
+      Object {
+        "completed": false,
+        "id": "2",
+        "title": "quis ut nam facilis et officia qui",
+      },
+      Object {
+        "completed": false,
+        "id": "3",
+        "title": "fugiat veniam minus",
+      },
+      Object {
+        "completed": true,
+        "id": "4",
+        "title": "et porro tempora",
+      },
+      Object {
+        "completed": false,
+        "id": "5",
+        "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+      },
+      Object {
+        "completed": false,
+        "id": "6",
+        "title": "qui ullam ratione quibusdam voluptatem quia omnis",
+      },
+      Object {
+        "completed": false,
+        "id": "7",
+        "title": "illo expedita consequatur quia in",
+      },
+      Object {
+        "completed": true,
+        "id": "8",
+        "title": "quo adipisci enim quam ut ab",
+      },
+      Object {
+        "completed": false,
+        "id": "9",
+        "title": "molestiae perspiciatis ipsa",
+      },
+      Object {
+        "completed": true,
+        "id": "10",
+        "title": "illo est ratione doloremque quia maiores aut",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;

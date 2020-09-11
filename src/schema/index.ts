@@ -5,12 +5,12 @@ import {
 import { mergeSchemas } from 'apollo-server';
 import merge from 'lodash/merge';
 import {
-  typeDefs as bookTypeDefs,
-  resolvers as bookResolvers
-} from '../modules/Books';
+  typeDefs as todoTypeDefs,
+  resolvers as todoResolvers
+} from '../modules/Todos';
 
-const typeDefs = [bookTypeDefs];
-const resolvers = merge({}, bookResolvers);
+const typeDefs = [todoTypeDefs];
+const resolvers = merge({}, todoResolvers);
 
 const schema = mergeSchemas({
   schemas: [

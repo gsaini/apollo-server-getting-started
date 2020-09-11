@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/lodash": "^4.14.161",
+    "apollo-datasource-rest": "^0.9.3",
     "apollo-server": "^2.17.0",
     "graphql": "^15.3.0",
     "lodash": "^4.17.20"
@@ -28,10 +29,13 @@
     "@graphql-codegen/typescript-operations": "^1.17.8",
     "@graphql-codegen/typescript-react-apollo": "^2.0.6",
     "@types/jest": "^26.0.13",
+    "apollo-server-caching": "^0.5.2",
+    "apollo-server-testing": "^2.17.0",
     "graphql-tools": "^6.2.1",
     "husky": "^4.3.0",
     "jest": "^26.4.2",
     "lint-staged": "^10.3.0",
+    "nock": "^13.0.4",
     "nodemon": "^2.0.4",
     "prettier": "2.1.1",
     "pretty-quick": "^3.0.1",

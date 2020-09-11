@@ -10,43 +10,11 @@ export type Scalars = {
 };
 
 export type Query = {
-  books: Maybe<Array<Maybe<Book>>>;
   todos: Maybe<Array<Maybe<ToDo>>>;
-  getAuthorBooks: Maybe<Array<Maybe<Book>>>;
-};
-
-
-export type QuerygetAuthorBooksArgs = {
-  author: Maybe<Scalars['String']>;
-};
-
-export type Mutation = {
-  updateTodo: Maybe<ToDo>;
-  addBook: Maybe<Book>;
-};
-
-
-export type MutationupdateTodoArgs = {
-  id: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
-};
-
-
-export type MutationaddBookArgs = {
-  title: Maybe<Scalars['String']>;
-  author: Maybe<Scalars['String']>;
-};
-
-export type Book = {
-  title: Maybe<Scalars['String']>;
-  author: Maybe<Scalars['String']>;
-};
-
-export type Author = {
-  title: Maybe<Scalars['String']>;
 };
 
 export type ToDo = {
-  id: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  title: Maybe<Scalars['String']>;
+  completed: Maybe<Scalars['Boolean']>;
 };
