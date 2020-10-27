@@ -31,7 +31,7 @@
     "@types/jest": "^26.0.13",
     "apollo-server-caching": "^0.5.2",
     "apollo-server-testing": "^2.17.0",
-    "graphql-tools": "^6.2.1",
+    "graphql-tools": "^7.0.0",
     "husky": "^4.3.0",
     "jest": "^26.4.2",
     "lint-staged": "^10.3.0",

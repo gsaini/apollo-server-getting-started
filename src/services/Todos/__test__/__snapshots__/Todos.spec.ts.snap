@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Todos Module should return todos 1`] = `
+exports[`Todos RESTDatasource should return todos 1`] = `
 Array [
   Object {
     "completed": false,
