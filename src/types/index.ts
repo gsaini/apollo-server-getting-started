@@ -15,8 +15,22 @@ export type Query = {
   todos: Maybe<Array<Maybe<ToDo>>>;
 };
 
+export type Mutation = {
+  updateTodo: Maybe<ToDo>;
+};
+
+
+export type MutationupdateTodoArgs = {
+  todo: Maybe<TodoMutationInputArgs>;
+};
+
 export type ToDo = {
   id: Scalars['ID'];
   title: Maybe<Scalars['String']>;
   completed: Maybe<Scalars['Boolean']>;
+};
+
+export type TodoMutationInputArgs = {
+  id: Scalars['ID'];
+  completed: Scalars['Boolean'];
 };

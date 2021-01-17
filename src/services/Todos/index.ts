@@ -1,5 +1,5 @@
 import Service from '../Base';
-import { ToDo } from '../../types';
+import { ToDo, TodoMutationInputArgs } from '../../types';
 
 class TodosAPI extends Service {
   constructor() {
@@ -8,6 +8,10 @@ class TodosAPI extends Service {
 
   async getTodos(): Promise<ToDo[]> {
     return this.getData('/todos');
+  }
+
+  async updateTodo(todo: TodoMutationInputArgs): Promise<ToDo> {
+    return this.put(`/todos/${todo.id}`, todo);
   }
 }
 

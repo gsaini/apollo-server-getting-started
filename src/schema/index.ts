@@ -21,5 +21,4 @@ const schema = mergeSchemas({
   ]
 });
 
-export { typeDefs, resolvers };
 export default schema;

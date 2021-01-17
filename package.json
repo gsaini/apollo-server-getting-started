@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "start:dev": "npm run watch-ts&&nodemon --inspect -r dist/index.js",
-    "watch-ts": "tsc -w -p tsconfig.build.json",
+    "start": "nodemon src/index.ts",
     "test": "jest",
     "generate": "graphql-codegen",
     "pretty-quick": "pretty-quick --staged",
